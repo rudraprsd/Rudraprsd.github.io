@@ -12,6 +12,9 @@
     <meta property="og:url" content="https://rudraprsd.github.io">
     <meta property="og:type" content="website">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Rudra Prasad Sahu | Portfolio</title>
     <style>
         * {
@@ -20,86 +23,220 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-bg: #0d1117;
+            --secondary-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #f5f5f5;
+            --text-secondary: #c9d1d9;
+            --accent-color: #58a6ff;
+            --card-padding: clamp(1rem, 5vw, 2rem);
+            --section-spacing: clamp(2rem, 8vw, 4rem);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #f5f5f5;
-            background-color: #0d1117;
+            color: var(--text-primary);
+            background-color: var(--primary-bg);
             overflow-x: hidden;
         }
 
         header {
             text-align: center;
-            padding: 3rem 1rem;
-            background-color: #161b22;
-            border-bottom: 1px solid #30363d;
+            padding: clamp(2rem, 6vw, 3rem) 1rem 1rem;
+            background-color: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        h1, h2 {
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             margin-bottom: 1rem;
         }
 
         nav {
-            background-color: #161b22;
+            background-color: var(--secondary-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            align-items: center;
+            height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
             padding: 1rem 0;
+            margin-right: 1rem;
         }
 
         nav a {
-            color: #c9d1d9;
-            margin: 0 1.5rem;
+            color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 1rem;
+            padding: 0.5rem 0;
         }
 
         nav a:hover {
-            color: #58a6ff;
+            color: var(--accent-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+
+        .nav-toggle svg {
+            width: 24px;
+            height: 24px;
         }
 
         main {
-            max-width: 50rem;
-            margin: 3rem auto;
-            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--card-padding);
         }
 
         section {
-            margin-bottom: 4rem;
+            margin-bottom: var(--section-spacing);
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: clamp(120px, 30vw, 180px);
+            height: clamp(120px, 30vw, 180px);
             border-radius: 50%;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
         }
 
         .card {
-            background: #161b22;
-            padding: 2rem;
+            background: var(--secondary-bg);
+            padding: var(--card-padding);
             margin-bottom: 2rem;
-            border: 1px solid #30363d;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+
+        .social-links a:hover img {
+            filter: brightness(0) saturate(100%) invert(67%) sepia(67%) saturate(4680%) hue-rotate(199deg) brightness(101%) contrast(101%);
         }
 
         footer {
             text-align: center;
             padding: 2rem 1rem;
-            background: #161b22;
+            background: var(--secondary-bg);
+            margin-top: var(--section-spacing);
         }
 
         @media (max-width: 768px) {
-            nav {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-container {
+                justify-content: flex-end;
+                position: relative;
+            }
+
+            nav ul {
+                display: none;
                 flex-direction: column;
+                gap: 0;
+                padding: 0;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: var(--secondary-bg);
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav li {
+                border-top: 1px solid var(--border-color);
+                width: 100%;
             }
 
             nav a {
-                margin: 0.5rem 0;
+                display: block;
+                padding: 1rem;
+                text-align: center;
             }
 
-            .profile-img {
-                width: 140px;
-                height: 140px;
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Tablet specific adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .card {
+                padding: 1.75rem;
+            }
+
+            main {
+                padding: 2rem;
             }
         }
     </style>
@@ -109,44 +246,98 @@
         <img src="profile_img.jpg" alt="Profile Photo of Rudra Prasad Sahu" class="profile-img">
         <h1>Rudra Prasad Sahu</h1>
         <p>BS-MS 4th Year, Physics and Computer Science</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/rudra-prasad-sahu-631227226/" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/rudraprsd" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+            </a>
+        </div>
     </header>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-container">
+            <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
         <section id="about">
             <h2>About</h2>
-            <p>I'm a BS-MS student at IISER Berhampur with a passion for machine learning and material science.</p>
+            <div class="card">
+                <p>I'm a BS-MS student at IISER Berhampur with a passion for machine learning and material science. Currently focusing on computational methods in physics and their applications in materials research.</p>
+            </div>
         </section>
 
         <section id="research">
             <h2>Research</h2>
             <div class="card">
-                <p>Currently working on deep learning models for medical image analysis and automated diagnostics.</p>
+                <h3>Automation of High-throughput Band Structure Calculation</h3>
+                <p>Developed an automated high-throughput band structure calculation pipeline under Dr. Bahadur Singh:</p>
+                <ul style="padding-left: 1.5rem; margin-top: 1rem;">
+                    <li>Implemented code for VASP calculations from structure files</li>
+                    <li>Automated generation of density of states, band structures, and orbital-projected band structure plots</li>
+                    <li>Tested on 250 materials across diverse space groups</li>
+                    <li>Streamlined workflow for efficient electronic structure analysis and visualization</li>
+                </ul>
             </div>
         </section>
 
         <section id="publications">
             <h2>Publications</h2>
             <div class="card">
-                <p>"Interpretable AI in Healthcare" - IEEE ML Conference 2023</p>
+                <p>Ongoing research - publications in progress</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>Email: rudraprasad01@outlook.com</p>
-            <p>Address: 369, Boys Hostel, IISER Berhampur</p>
+            <div class="card">
+                <p>Email: rudraprasad01@outlook.com</p>
+                <p>Address: 369, Boys Hostel, IISER Berhampur, Konisi, Berhampur, 760003</p>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Rudra Prasad Sahu</p>
     </footer>
+
+    <script>
+        function toggleNav() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const menu = document.getElementById('nav-menu');
+                menu.classList.remove('show');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('nav-menu');
+            const toggle = document.querySelector('.nav-toggle');
+            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
