@@ -16,230 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Rudra Prasad Sahu | Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-bg: #0d1117;
-            --secondary-bg: #161b22;
-            --border-color: #30363d;
-            --text-primary: #f5f5f5;
-            --text-secondary: #c9d1d9;
-            --accent-color: #58a6ff;
-            --card-padding: clamp(1rem, 5vw, 2rem);
-            --section-spacing: clamp(2rem, 8vw, 4rem);
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--primary-bg);
-            overflow-x: hidden;
-        }
-
-        header {
-            text-align: center;
-            padding: clamp(2rem, 6vw, 3rem) 1rem 1rem;
-            background-color: var(--secondary-bg);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        h1 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: 1rem;
-        }
-
-        nav {
-            background-color: var(--secondary-bg);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            height: 60px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            padding: 1rem 0;
-            margin-right: 1rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav-toggle {
-            display: none;
-            background: transparent;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            padding: 0.5rem;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1001;
-        }
-
-        .nav-toggle svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--card-padding);
-        }
-
-        section {
-            margin-bottom: var(--section-spacing);
-        }
-
-        .profile-img {
-            width: clamp(120px, 30vw, 180px);
-            height: clamp(120px, 30vw, 180px);
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            object-fit: cover;
-            border: 3px solid var(--accent-color);
-        }
-
-        .card {
-            background: var(--secondary-bg);
-            padding: var(--card-padding);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .social-links {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-primary);
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .social-links img {
-            width: 24px;
-            height: 24px;
-            filter: brightness(0) invert(1);
-            transition: filter 0.3s ease;
-        }
-
-        .social-links a:hover img {
-            filter: brightness(0) saturate(100%) invert(67%) sepia(67%) saturate(4680%) hue-rotate(199deg) brightness(101%) contrast(101%);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--secondary-bg);
-            margin-top: var(--section-spacing);
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-
-            .nav-container {
-                justify-content: flex-end;
-                position: relative;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: var(--secondary-bg);
-                border-bottom: 1px solid var(--border-color);
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav li {
-                border-top: 1px solid var(--border-color);
-                width: 100%;
-            }
-
-            nav a {
-                display: block;
-                padding: 1rem;
-                text-align: center;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Tablet specific adjustments */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .card {
-                padding: 1.75rem;
-            }
-
-            main {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
     <header>
@@ -290,7 +68,7 @@
                 <ul style="padding-left: 1.5rem; margin-top: 1rem;">
                     <li>Implemented code for VASP calculations from structure files</li>
                     <li>Automated generation of density of states, band structures, and orbital-projected band structure plots</li>
-                    <li>Tested on 250 materials across diverse space groups</li>
+                    <!-- <li>Tested on 250 materials across diverse space groups</li> -->
                     <li>Streamlined workflow for efficient electronic structure analysis and visualization</li>
                 </ul>
             </div>
@@ -314,6 +92,18 @@
 
     <footer>
         <p>&copy; 2024 Rudra Prasad Sahu</p>
+        <div class="tech-details">
+            <button class="tech-details-btn" onclick="toggleTechDetails()">
+                How this site was built
+            </button>
+            <div class="tech-details-content" id="techDetails">
+                <ul class="features">
+                    <li>Ultra lightweight <span class="tech-stat">&lt; 512KB</span></li>
+                    <li>No frameworks <span class="tech-stat">Pure JS & CSS</span></li>
+                    <li>Designed to impress, built to last</li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -338,6 +128,17 @@
                 menu.classList.remove('show');
             }
         });
+
+        // Add new function for tech details toggle
+        function toggleTechDetails() {
+            const details = document.getElementById('techDetails');
+            details.classList.toggle('show');
+            
+            const btn = document.querySelector('.tech-details-btn');
+            btn.textContent = details.classList.contains('show') 
+                ? 'Hide technical details' 
+                : 'How this site was built';
+        }
     </script>
 </body>
 </html>
